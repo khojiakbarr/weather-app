@@ -15,7 +15,7 @@ export default function Hero() {
   // Memoize weather state and icons
   const weatherDetails = useMemo(() => {
     // console.log(forecastData);
-// 
+    //
     const statusWeather = useDetermineWeatherType(weatherData);
     const details = [
       {

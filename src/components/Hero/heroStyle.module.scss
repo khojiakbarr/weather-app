@@ -61,16 +61,27 @@ $base: 16;
     color: var(--brand-color);
     font-weight: 500;
     font-size: px-to-rem(96);
+
+    @include respond(phone) {
+      font-size: px-to-rem(60);
+    }
   }
   & h3 {
     color: var(--text-color);
     font-size: px-to-rem(40);
+
+    @include respond(phone) {
+      font-size: px-to-rem(30);
+    }
   }
 
   & p {
     color: var(--text-gray);
     font-weight: 400;
     font-size: px-to-rem(25);
+    @include respond(phone) {
+      font-size: px-to-rem(20);
+    }
   }
 }
 
@@ -99,6 +110,10 @@ $base: 16;
   display: flex;
   flex-direction: column;
   gap: px-to-rem(20);
+  @include respond(phone) {
+    justify-content: center;
+   gap: px-to-rem(40);
+  }
 }
 
 .verb {
