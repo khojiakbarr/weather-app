@@ -1,4 +1,4 @@
-# Weather App
+# [Weather App](https://weather-app-nextjs-beryl.vercel.app/)
 
 Это приложение предоставляет информацию о текущей погоде и прогнозе погоды для выбранного города, используя API OpenWeather.
 
