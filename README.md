@@ -16,7 +16,7 @@
 
 1. Клонируйте репозиторий:
    ```bash
-   git clone https://github.com/ваш_репозиторий.git
+   git clone https://github.com/khojiakbarr/weather-app.git
    ```
 2. Перейдите в директорию проекта:
 
