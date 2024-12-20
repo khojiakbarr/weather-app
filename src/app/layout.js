@@ -3,8 +3,10 @@ import "./globals.css";
 import Layout from "@/components/Theme/ThemeLayout";
 
 const montserrat = Montserrat({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ['300', '400', '500', '700'],
+  subsets: ['latin'],
+  display:'swap',
+  fallback: ['Arial', 'sans-serif'],
 });
 
 export const metadata = {
