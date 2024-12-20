@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-color: #4793ff;
+  --text-color: #000;
+  --bg-color: #fff;
+  --primary-color: #4794ff41;
+  --text-gray: #939cb0;
+  --loader-color: #fff;
+}
+
+body {
+  transition: all 0.3s ease;
+  background-color: var(--bg-color);
+}
+
+.dark-mode {
+  --text-color: #fff;
+  --bg-color: #121212;
+  --loader-color: #4793ff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}

@@ -1,0 +1,85 @@
+@use "sass:math";
+$base: 16;
+@function px-to-rem($px) {
+  @return $px / $base * 1rem;
+}
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media only screen and (max-width: px-to-rem(768)) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tablet {
+    @media only screen and (max-width: px-to-rem(1024)) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == desktop {
+    @media only screen and (max-width: px-to-rem(1440)) {
+      @content;
+    }
+  }
+}
+
+.weathers {
+  margin: px-to-rem(90) 0 px-to-rem(150);
+}
+
+.myCard {
+  padding: px-to-rem(11);
+  border-radius: 10px;
+  max-width: px-to-rem(149);
+  background-color: var(--primary-color);
+  transition: all 0.4s ease;
+  &:hover {
+    box-shadow: 0 3px 20px 0 rgba(147, 144, 144, 0.28);
+  }
+}
+
+.cardTitle {
+  font-weight: 500;
+  font-size: px-to-rem(18);
+  color: var(--text-color);
+}
+
+.cardDate {
+  margin: px-to-rem(7) 0 px-to-rem(12) 0;
+  color: var(--text-color);
+}
+
+.cardIcon {
+  margin: px-to-rem(12) 0;
+  position: relative;
+  width: 48px;
+  height: 48px;
+}
+
+.gradus {
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--text-color);
+}
+
+.celcy {
+  font-weight: 400;
+  font-size: 13px;
+  color: var(--text-gray);
+}
+.info {
+  margin-top: px-to-rem(6);
+  font-weight: 400;
+  font-size: 13px;
+  color: var(--text-gray);
+}
+
+.weatherWrapper {
+  padding: px-to-rem(20);
+  gap: px-to-rem(10);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(px-to-rem(100), 1fr));
+  box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
+  border-radius: 20px
+}

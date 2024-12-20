@@ -1,0 +1,140 @@
+@use "sass:math";
+
+$base: 16;
+@function px-to-rem($px) {
+  @return $px / $base * 1rem;
+}
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media only screen and (max-width: px-to-rem(768)) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tablet {
+    @media only screen and (max-width: px-to-rem(1024)) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == desktop {
+    @media only screen and (max-width: px-to-rem(1440)) {
+      @content;
+    }
+  }
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: px-to-rem(50);
+
+  @include respond(tablet) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  padding: px-to-rem(20);
+  border-radius: 20px;
+  box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
+  background: transparent;
+  &:nth-child(2) {
+    background-image: url("/mainClud.png");
+    background-size: 50%;
+    background-position: top right;
+    background-repeat: no-repeat;
+
+    @include respond(phone) {
+      background-size: 70%;
+    }
+  }
+
+  @include respond(phone) {
+    padding: px-to-rem(10);
+  }
+}
+
+.mainInfo {
+  & h2 {
+    color: var(--brand-color);
+    font-weight: 500;
+    font-size: px-to-rem(96);
+  }
+  & h3 {
+    color: var(--text-color);
+    font-size: px-to-rem(40);
+  }
+
+  & p {
+    color: var(--text-gray);
+    font-weight: 400;
+    font-size: px-to-rem(25);
+  }
+}
+
+.mainInfoWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.myImage {
+  position: relative;
+  width: px-to-rem(110);
+}
+
+.otherInfo {
+  margin: px-to-rem(20);
+  display: flex;
+  gap: px-to-rem(20);
+
+  @include respond(phone) {
+    margin: 0;
+    gap: px-to-rem(10);
+  }
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: px-to-rem(20);
+}
+
+.verb {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  @include respond(phone) {
+    gap: 5px;
+  }
+  & > p {
+    font-weight: 400;
+    color: var(--text-gray);
+  }
+}
+
+.itemIcon {
+  position: relative;
+  width: px-to-rem(20);
+  height: px-to-rem(20);
+}
+
+.itemValue {
+  padding: px-to-rem(8);
+  color: var(--text-color);
+  font-weight: 400;
+  font-size: px-to-rem(14);
+
+  @include respond(pohone) {
+    font-size: px-to-rem(12);
+  }
+}
+
+.icon {
+  padding: 6px;
+  border-radius: 100%;
+  fill: #fff;
+  box-shadow: 1px 4px 10px -1px rgba(71, 147, 255, 0.2);
+}

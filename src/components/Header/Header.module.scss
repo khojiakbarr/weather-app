@@ -1,0 +1,75 @@
+@use "sass:math";
+
+$base: 16;
+@function px-to-rem($px) {
+  @return $px / $base * 1rem;
+}
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone-sm {
+    @media only screen and (max-width: px-to-rem(560)) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == phone {
+    @media only screen and (max-width: px-to-rem(768)) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tablet {
+    @media only screen and (max-width: px-to-rem(1024)) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == desktop {
+    @media only screen and (max-width: px-to-rem(1440)) {
+      @content;
+    }
+  }
+}
+
+.header {
+  padding: px-to-rem(32) 0 px-to-rem(48) 0;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @include respond(phone-sm) {
+    flex-direction: column;
+    align-items: center;
+    gap: px-to-rem(16);
+  }
+}
+
+.items {
+  display: flex;
+  align-items: center;
+  gap: px-to-rem(20);
+}
+
+.logo {
+  font-weight: 700;
+  font-size: px-to-rem(25);
+  text-transform: uppercase;
+  color: var(--brand-color);
+}
+
+.search_input {
+  max-width: px-to-rem(194);
+  padding: px-to-rem(9) px-to-rem(20);
+  font-size: 1rem;
+  color: var(--text-color);
+  outline: none;
+  background: var(--primary-color);
+  border-radius: 15px;
+  font-weight: 500;
+  &::placeholder {
+    color: var(--text-color);
+    font-weight: 500;
+  }
+}
